@@ -10,6 +10,7 @@ function Conjutnos() {
 
   const [mostrarTemaConjuntos, setMostrarTemaConjuntos] = useState(false);
   const [mostrarTemaConjuntosItemTipo, setMostrarTemaConjuntosItemTipo] = useState(false);
+  const [mostrarTemaConjuntosItemRelaciones, setMostrarTemaConjuntosItemRelaciones] = useState(false);
 
   const handleClickTema = () => {
     if (mostrarTemaConjuntos) {
@@ -27,8 +28,16 @@ function Conjutnos() {
     }
   };
 
+  const handleClickTemaItemRelaciones = () => {
+    if (mostrarTemaConjuntosItemRelaciones) {
+      setMostrarTemaConjuntosItemRelaciones(false);
+    }else {
+      setMostrarTemaConjuntosItemRelaciones(true);
+    }
+  };
+
   return (
-    <>
+    <div style={{ background:'grey', borderRadius:' 5px' }}>
       <button onClick={handleClickTema}>CONJUNTOS</button>
       {mostrarTemaConjuntos ? (
         <div>
@@ -39,6 +48,7 @@ function Conjutnos() {
       </p>
       <br />
       <div>De estos, hay <strong>TIPOS</strong>...</div>
+      <div style={{ border:'3px solid red' }}>
       <button style={{color:"red", textDecoration: "underline"}} onClick={handleClickTemaItemTipo}>TIPOS</button>
       {mostrarTemaConjuntosItemTipo ? (
       <div>
@@ -81,12 +91,57 @@ function Conjutnos() {
       ): (
         <div></div>
       )}
+      </div>
+      <div style={{ border:'3px solid blue' }}>
+      <button style={{color:"blue", textDecoration: "underline"}} onClick={handleClickTemaItemRelaciones}>RELACIONES</button>
+      {mostrarTemaConjuntosItemRelaciones ? (
+      <div>
+        <ul>
+        <li style={{color:"blue"}}>Finitos </li>
+        <p style={{color:"blue"}}>Con un límite en la cantidad de elementos que pueden componer el conjunto</p>
+        <div style={{color:"blue"}}>Ejemplo</div>
+        <div>Letra: Números del 1 al 3</div>
+        <p>{conjuntoFinito}</p>
+      </ul>
+      <ul>
+        <li style={{color:"blue"}}>Infinitos ♾️</li>
+        <p style={{color:"blue"}}>SIN un límite en la cantidad de elementos que pueden componer el conjunto</p>
+        <div style={{color:"blue"}}>Ejemplo</div>
+        <div>Letra: Números del 1 al infinito</div>
+        <p>{conjuntoInfinito}</p>
+      </ul>
+      <ul>
+        <li style={{color:"blue"}}>Conjuntos Vacíos {} </li>
+        <p style={{color:"blue"}}>SIN elementos que puedan componer este conjunto</p>
+        <div style={{color:"blue"}}>Ejemplo</div>
+        <div>Letra: Número de celu del desarrollador del sitio</div>
+        <p>{conjuntoVacio}</p>
+      </ul>
+      <ul>
+        <li style={{color:"blue"}}>Conjuntos Unitarios</li>
+        <p style={{color:"blue"}}>SOLO UN elemento puede componer este conjunto</p>
+        <div style={{color:"blue"}}>Ejemplo</div>
+        <div>Letra: Mi nombre completo</div>
+        <p>{conjuntoUnitario}</p>
+      </ul>
+      <ul>
+        <li style={{color:"blue"}}>Conjuntos Universales</li>
+        <p style={{color:"blue"}}>TODOS los elementos dentro de un contexto pueden componer este conjunto</p>
+        <div style={{color:"blue"}}>Ejemplo</div>
+        <div>Letra: Quienes estudian?</div>
+        <p>{conjuntoUniversal}</p>
+      </ul>
+      </div>
+      ): (
+        <div></div>
+      )}
+      </div>
         </div>
       ) : (
         <div></div>
       )}
       
-    </>
+    </div>
   )
 }
 
