@@ -9,18 +9,11 @@ function App() {
 
   return (
     <>
-      <h1>Aprender Ingeniería - FING Uruguay</h1>
+      {/*  */}
 
-      <Router>  
-      <nav>
-          <Link to="/">Inicio</Link>
-          <br></br>
-          <Link to="/materias/">Materias</Link>
-      </nav>
-
+    <Router>  
       <Routes>
-        <Route path="/home/" element={<Home />} />
-        <Route path="/" />
+        <Route path="/" element={<Home />} />
         <Route path="/materias/matematica_inicial/" element={<MatematicaInicial />} />
         <Route path="/materias/" element={<Materias />} />
         <Route path="*" element={<NotFound />} />

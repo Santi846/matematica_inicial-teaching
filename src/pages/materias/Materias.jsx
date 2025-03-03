@@ -6,7 +6,7 @@ const Materias = () => {
   return <>
     <h1>📚 Materias</h1>
     <nav>
-          <Link to="/home/">Home</Link>
+          <Link to="/">Home</Link>
             <br></br>
           <Link to="/materias/matematica_inicial/">Mátematica Inicial</Link>
       </nav>
