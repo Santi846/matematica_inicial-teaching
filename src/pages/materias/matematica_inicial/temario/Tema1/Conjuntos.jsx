@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 function Conjutnos() {
 
@@ -7,15 +8,41 @@ function Conjutnos() {
   const conjuntoUnitario = ["Santiago Arocha Pérez"];
   const conjuntoUniversal = ["Estudiantes"];
 
+  const [mostrarTemaConjuntos, setMostrarTemaConjuntos] = useState(false);
+  const [mostrarTemaConjuntosItemTipo, setMostrarTemaConjuntosItemTipo] = useState(false);
+
+  const handleClickTema = () => {
+    if (mostrarTemaConjuntos) {
+      setMostrarTemaConjuntos(false);
+    }else {
+      setMostrarTemaConjuntos(true);
+    }
+  };
+
+  const handleClickTemaItemTipo = () => {
+    if (mostrarTemaConjuntosItemTipo) {
+      setMostrarTemaConjuntosItemTipo(false);
+    }else {
+      setMostrarTemaConjuntosItemTipo(true);
+    }
+  };
+
   return (
     <>
-      <h2>CONJUNTOS</h2>
-      <h3>¿Que es un Conjunto?</h3>
-      <p>Es una agrupación de elementos de algún tipo, o agrupados en base a alguna categorización</p>
+      <button onClick={handleClickTema}>CONJUNTOS</button>
+      {mostrarTemaConjuntos ? (
+        <div>
+          <h3>¿Que es un Conjunto?</h3>
+      <p>Es una agrupación de elementos de algún tipo, o agrupados en base a alguna categorización. Esto se define como <strong>COMPRENSIÓN</strong>
       <br />
-      <div>De estos, hay <strong>TIPOS</strong></div>
-      <h3 style={{color:"red", textDecoration: "underline"}}><strong>TIPOS</strong></h3>
-      <ul>
+      Y, cuando se detalla, que elementos pertenecen a ese conjunto, se define como <strong>EXTENSIÓN</strong>.
+      </p>
+      <br />
+      <div>De estos, hay <strong>TIPOS</strong>...</div>
+      <button style={{color:"red", textDecoration: "underline"}} onClick={handleClickTemaItemTipo}>TIPOS</button>
+      {mostrarTemaConjuntosItemTipo ? (
+      <div>
+        <ul>
         <li style={{color:"red"}}>Finitos </li>
         <p style={{color:"red"}}>Con un límite en la cantidad de elementos que pueden componer el conjunto</p>
         <div style={{color:"red"}}>Ejemplo</div>
@@ -50,6 +77,15 @@ function Conjutnos() {
         <div>Letra: Quienes estudian?</div>
         <p>{conjuntoUniversal}</p>
       </ul>
+      </div>
+      ): (
+        <div></div>
+      )}
+        </div>
+      ) : (
+        <div></div>
+      )}
+      
     </>
   )
 }
